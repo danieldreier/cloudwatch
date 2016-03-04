@@ -9,5 +9,6 @@ class cloudwatch::service {
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
+    require    => [ Exec['install cloudwatch log agent'], File[$cloudwatch::config_file] ],
   }
 }
